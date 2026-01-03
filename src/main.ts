@@ -6,6 +6,8 @@ import { ExpressAdapter } from '@nestjs/platform-express';
 const express = require('express');
 const server = express();
 
+server.get('/', (req, res) => res.send('🚀 Bazar Server is LIVE!'));
+
 async function bootstrap() {
   const app = await NestFactory.create(
     AppModule,
