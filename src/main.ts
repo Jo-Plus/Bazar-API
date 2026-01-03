@@ -8,23 +8,29 @@ const server = express();
 let isInitialized = false;
 
 async function bootstrap() {
-  if (isInitialized) return server;
+  if (isInitialized) return;
 
   const app = await NestFactory.create(
     AppModule,
     new ExpressAdapter(server),
   );
 
-  app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+    }),
+  );
+
   app.enableCors();
 
   await app.init();
   isInitialized = true;
-
-  return server;
 }
 
-module.exports = async (req, res) => {
+const handler = async (req: any, res: any) => {
   await bootstrap();
-  return server(req, res);
+  server(req, res);
 };
+
+export default handler;
