@@ -1,5 +1,5 @@
 {
-  "name": "bazar-system",
+  "name": "bazar-api",
   "version": "0.0.1",
   "description": "NestJS API Deployed on Vercel",
   "author": "",
