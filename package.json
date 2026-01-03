@@ -1,12 +1,12 @@
 {
-  "name": "bazarapi",
+  "name": "bazar-system",
   "version": "0.0.1",
   "description": "NestJS API Deployed on Vercel",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   },
   "scripts": {
     "build": "nest build",
