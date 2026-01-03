@@ -14,10 +14,9 @@ async function bootstrap() {
   
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   app.enableCors();
-
   await app.init();
 }
 
 bootstrap();
 
-export default server;
+module.exports = server;
