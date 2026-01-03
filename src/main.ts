@@ -6,13 +6,10 @@ import { ExpressAdapter } from '@nestjs/platform-express';
 const express = require('express');
 const server = express();
 
-server.get('/', (req, res) => res.send('🚀 Bazar Server is LIVE!'));
+server.get('/', (req, res) => res.send('Bazar Server is Running! 🚀'));
 
 async function bootstrap() {
-  const app = await NestFactory.create(
-    AppModule,
-    new ExpressAdapter(server),
-  );
+  const app = await NestFactory.create(AppModule, new ExpressAdapter(server));
 
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   app.enableCors();
